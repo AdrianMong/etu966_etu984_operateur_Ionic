@@ -1,0 +1,13 @@
+affichage:
+    - inscription
+    - login
+    - accueil
+    - mon compte
+    - achat forfait
+    - simulation
+        - appel
+        - data
+        - sms
+    - historique appel
+    - historique sms
+
