@@ -1,13 +1,27 @@
 affichage:
-    - inscription
-    - login
-    - accueil
+    ✔ inscription @done(21-03-31 14:51)
+    ✔ login @done(21-03-31 14:51)
+    ✔ accueil @done(21-04-01 22:32)
     - mon compte
+    ☐ Mobile money
+        - Depot
+        - Retrait
+    - achat credit
     - achat forfait
-    - simulation
+    ☐ simulation
         - appel
         - data
         - sms
-    - historique appel
-    - historique sms
-
+    ☐ Historique
+        - historique mobile money
+        - historique achat forfait    
+        - historique appel
+        - historique sms
+Menu:
+    - accueil
+    - mon compte
+    - mobile money
+Accueil:
+    - achat credit
+    - forfait
+    - historique

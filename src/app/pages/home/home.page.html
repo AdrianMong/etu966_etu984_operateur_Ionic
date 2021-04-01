@@ -1,26 +1,56 @@
-<ion-split-pane contentId="main-content">
-  <ion-menu contentId="main-content">
-    <ion-content>
-      <ion-list lines="none">
-        <ion-list-header>
-          Pages
-        </ion-list-header>
-        <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
-          <ion-item [routerLink]="p.url" routerLinkActive="selected" routerDirection="root" detail="false">
-            <ion-icon slot="start" [name]="p.icon + '-outline'"></ion-icon>
+<header-component title="Accueil" color=""></header-component>
+
+<ion-content>
+    <ion-card>
+        <ion-item color="dark" lines="none">
+            <ion-icon name="phone-portrait" slot="start"></ion-icon>
             <ion-label>
-              {{p.title}}
+                Votre numéro
             </ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-item>
-          <ion-icon slot="start" name="moon-outline"></ion-icon>
-          <ion-label>
-            Dark Mode
-          </ion-label>
-          <ion-toggle (ionChange)="toggleThemeColor($event)"></ion-toggle>
         </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-</ion-split-pane>
+        <ion-item color="dark" lines="full" >
+            <h5>
+                0321245678
+            </h5>
+      </ion-item>
+    </ion-card>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <card-component text="Achat crédit" color="dark"></card-component>
+            </ion-col>
+            <ion-col>
+                <card-component text="Forfait" color="dark" link="/forfait"></card-component>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-item-divider>
+                <ion-label>
+                  Historique
+                </ion-label>
+            </ion-item-divider>
+            <ion-col>
+                <card-component text="Appel"></card-component>
+            </ion-col>
+            <ion-col>
+                <card-component text="SMS"></card-component>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <card-component text="Data"></card-component>
+            </ion-col>
+            <ion-col>
+                <card-component text="Achat forfait"></card-component>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <card-component text="Transaction"></card-component>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <fab-component></fab-component>
+
+</ion-content>  

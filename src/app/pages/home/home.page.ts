@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HelperService } from '../../services/helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(public helper:HelperService,public router: Router) { }
 
   ngOnInit() {
+    if(!this.helper.isLogged()){
+      // this.router.navigate(['/connexion']);
+    }
   }
 
 }

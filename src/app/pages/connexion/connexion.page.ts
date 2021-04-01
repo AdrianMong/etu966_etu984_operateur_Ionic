@@ -3,7 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { AccountService } from '../../services/account.service';
 import { HelperService } from '../../services/helper.service';
 import { Router } from '@angular/router';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.page.html',
@@ -13,7 +13,9 @@ export class ConnexionPage implements OnInit {
   numero:string='';
   mdp:string='';
 
-  constructor(public alertController: AlertController,public account: AccountService,public helper:HelperService,private router: Router) { }
+  constructor(public alertController: AlertController,public account: AccountService,public helper:HelperService,private router: Router,public menu : MenuController) { 
+    
+  }
 
   ngOnInit() {
   }
@@ -48,5 +50,13 @@ export class ConnexionPage implements OnInit {
     this.account.connexion(this.numero,this.mdp).subscribe(success,error);
   }
 
+  ionViewWillEnter() {
+    this.menu.enable(false);
+    this.menu.swipeGesture(false);
+  }
 
+  ionViewWillLeave(){
+    this.menu.enable(true);
+    this.menu.swipeGesture(true);
+  }
 }

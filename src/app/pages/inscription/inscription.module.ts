@@ -15,6 +15,6 @@ import { InscriptionPage } from './inscription.page';
     IonicModule,
     InscriptionPageRoutingModule
   ],
-  declarations: [InscriptionPage]
+  declarations: [InscriptionPage],
 })
 export class InscriptionPageModule {}

@@ -8,22 +8,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
   appPages = [
     {
-      title: 'tab1',
-      url: '/tabs/tab1',
-      icon: 'list'
+      title: 'Accueil',
+      url: '',
+      icon: 'home'
     },
     {
-      title: 'tab2',
-      url: '/tabs/tab2',
-      icon: 'star'
+      title: 'Mon compte',
+      url: '/info-compte',
+      icon: 'person'
     },
     {
-      title: 'tab3',
-      url: '/tabs/tab3',
-      icon: 'information-circle'
-    }
+      title: 'Mobile Money',
+      url: '/mobile-money',
+      icon: 'card'
+    },
   ];
+
+
   constructor() {}
+
 
   toggleThemeColor(event){
     if(event.detail.checked){

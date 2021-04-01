@@ -1,0 +1,18 @@
+<headerback-component title="Achat de forfait {{typeForfait?.description}}" link="/forfait"></headerback-component>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+        Forfaits {{typeForfait?.description}}
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of forfaits" button (click)="describeForfait(item.idForfait)">
+        <ion-icon name="cart" slot="start"></ion-icon>
+        <ion-label>
+              <h2>{{item.nomForfait}}</h2>
+        </ion-label>
+        <ion-badge color="success" slot="end">{{item.montant}}</ion-badge>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

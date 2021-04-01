@@ -1,0 +1,48 @@
+<headerback-component title="Retour" link="/forfait-by-type/{{idForfait}}"></headerback-component>
+
+<ion-content *ngIf="forfaitDetails">
+  <ion-text color="success">
+    <h1 class="ion-text-center ion-margin-top">{{forfaitDetails?.nomForfait}}</h1>
+  </ion-text>
+  <p class="ion-padding">{{forfaitDetails.description}}</p>
+  <p class="ion-padding-start">Prix : <ion-text color="success">{{forfaitDetails.montant}}</ion-text></p>
+  <p class="ion-padding-start">Validité : <ion-text color="success">{{forfaitDetails.validite}}</ion-text></p>
+  
+  <ion-item>
+    <ion-label>Date achat</ion-label>
+    <ion-datetime displayFormat="D MMM YYYY H:mm" [(ngModel)]="dateAchat" ngDefaultControl></ion-datetime>
+  </ion-item>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-activatable ripple-parent" color="success" (click)="achat('C')">
+          <h5 class="card-text">Achat par solde principal</h5>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="ion-activatable ripple-parent" color="success" (click)="achat('MM')">
+          <h5 class="card-text">Achat par Mobile Money</h5>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-list>
+    <ion-list-header>
+        Détails
+    </ion-list-header>
+    <ion-item *ngFor="let item of forfaitDetails.desc">
+        <ion-icon [name]="getIconName(item.nom)" slot="start"></ion-icon>
+        <ion-label>
+            
+            <h2>{{item.nom}} : {{item.valeur}}</h2>
+        </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
