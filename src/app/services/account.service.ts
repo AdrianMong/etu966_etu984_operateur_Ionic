@@ -26,4 +26,21 @@ export class AccountService {
     const options=this.helper.formOption();
     return this.http.post(base_url+'compte/connexion',params,options);
   }
+
+  infoCompte(){
+    const options=this.helper.formOption(true);
+    return this.http.get(base_url+'compte/infoCompte',options);
+  }
+
+  achatCredit(montant:string,dateAchatCredit:string){
+    let params=new HttpParams().append("montant",montant).append("dateAchatCredit",dateAchatCredit);
+    const options=this.helper.formOption(true);
+    return this.http.post(base_url+'compte/buyCredit',params,options);
+  }
+
+  mouvementMobileMoney(montant:string,typeMouvementMM:string,dateMouvementMM:string){
+    let params=new HttpParams().append("montant",montant).append("typeMouvementMM",typeMouvementMM).append('dateMouvementMM',dateMouvementMM);
+    const options=this.helper.formOption(true);
+    return this.http.post(base_url+'compte/makeMouvementMM',params,options);
+  }
 }

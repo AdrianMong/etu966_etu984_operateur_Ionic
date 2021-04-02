@@ -26,7 +26,6 @@ export class ForfaitPage implements OnInit {
     toast.present();
   }
 
-
   getTypeForfait(){
     const success=response=>{
       this.typeForfait=response.datas.typeForfait;
@@ -40,6 +39,11 @@ export class ForfaitPage implements OnInit {
 
   forfaitByType(idTypeForfait:string){
     this.router.navigate(['/forfait-by-type',idTypeForfait]);
+  }
+
+  doRefresh(event){
+    this.getTypeForfait();
+    setTimeout(()=>{event.target.complete();}, 2000);
   }
 
   ionViewWillEnter() {

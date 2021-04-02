@@ -8,13 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  numero:string="";
 
   constructor(public helper:HelperService,public router: Router) { }
 
   ngOnInit() {
-    if(!this.helper.isLogged()){
-      // this.router.navigate(['/connexion']);
-    }
+    // if(!this.helper.isLogged()){
+    //   this.router.navigate(['/connexion']);
+    // }
+    this.numero=this.helper.getAccountData().numero;
   }
 
 }

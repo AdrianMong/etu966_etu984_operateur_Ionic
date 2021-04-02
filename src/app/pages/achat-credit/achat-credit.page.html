@@ -1,0 +1,16 @@
+<headerback-component title="Retour" link="/"></headerback-component>
+
+<ion-content>
+  <h1 class="ion-text-center ion-margin-top">Achat de crédit</h1>
+  <div>
+    <ion-item class="item">
+      <ion-label position="stacked">Montant</ion-label>
+      <ion-input type="number" min="1" [(ngModel)]="montant" ngDefaultControl required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date achat</ion-label>
+      <ion-datetime displayFormat="D MMM YYYY H:mm" [(ngModel)]="dateAchat" ngDefaultControl></ion-datetime>
+    </ion-item>
+    <ion-button class="ion-margin-top" expand="block" shape="round" (click)="achat()">Acheter</ion-button>
+  </div>
+</ion-content>

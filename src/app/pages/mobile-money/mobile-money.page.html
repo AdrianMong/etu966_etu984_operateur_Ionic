@@ -1,9 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>mobile-money</ion-title>
-  </ion-toolbar>
-</ion-header>
+<header-component title="Mobile Money"></header-component>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <h1 class="ion-text-center ion-margin-top">Solde Mobile Money de :</h1>
+  <h2 class="ion-text-center ion-margin-top">{{compte?.soldeMM}} AR</h2>
 
+  <div>
+    <ion-item class="item">
+      <ion-label position="stacked">Montant</ion-label>
+      <ion-input type="number" min="1" [(ngModel)]="montant" ngDefaultControl required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Type de transaction</ion-label>
+      <ion-select placeholder="Transaction" [(ngModel)]="typeMouvement" ngDefaultControl required>
+        <ion-select-option value="D" selected>Dépôt</ion-select-option>
+        <ion-select-option value="R">Retrait</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date transaction</ion-label>
+      <ion-datetime displayFormat="D MMM YYYY H:mm" [(ngModel)]="dateMouvementMM" ngDefaultControl></ion-datetime>
+    </ion-item>
+    <ion-button class="ion-margin-top" expand="block" shape="round" (click)="mouvementMM()">Confirmer</ion-button>
+  </div>
 </ion-content>

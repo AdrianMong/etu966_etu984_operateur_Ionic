@@ -1,0 +1,21 @@
+<headerback-component title="Retour" link="/"></headerback-component>
+
+<ion-content>
+    <h1 class="ion-text-center ion-margin-top">Envoyer un SMS</h1>
+  
+    <div>
+      <ion-item class="item">
+        <ion-label position="stacked">SMS</ion-label>
+        <ion-input type="text" min="1" [(ngModel)]="text" ngDefaultControl required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Destination</ion-label>
+        <ion-input type="text" [(ngModel)]="recipient" ngDefaultControl required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date consommation</ion-label>
+        <ion-datetime displayFormat="D MMM YYYY H:mm" [(ngModel)]="dateConsoSMS" ngDefaultControl></ion-datetime>
+      </ion-item>
+      <ion-button class="ion-margin-top" expand="block" shape="round" (click)="simulerSMS()">Confirmer</ion-button>
+    </div>
+</ion-content>

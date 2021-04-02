@@ -22,6 +22,11 @@ export class ForfaitByTypePage implements OnInit {
     this.getForfaitByType();
   }
 
+  doRefresh(event){
+    this.getForfaitByType();
+    setTimeout(()=>{event.target.complete();}, 2000);
+  }
+
   getForfaitByType(){
     const succes=response=>{
       this.typeForfait=response.datas.typeForfait;

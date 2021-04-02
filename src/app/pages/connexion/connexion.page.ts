@@ -20,7 +20,7 @@ export class ConnexionPage implements OnInit {
   ngOnInit() {
   }
 
-  async alert(mess:string) {
+  async alert(mess:string,func:any) {
     const alert = await this.alertController.create({
       cssClass: 'messageBox',
       header: 'Information',
@@ -30,9 +30,7 @@ export class ConnexionPage implements OnInit {
           text: 'Ok',
           role: 'ok',
           cssClass: 'secondary',
-          handler: (response) => {
-            this.router.navigate(['/'])  
-          }
+          handler: func
         },],
     });
     await alert.present();
@@ -41,10 +39,12 @@ export class ConnexionPage implements OnInit {
   connexion(){
     const success=response=>{
       this.helper.setAccountData(response.datas);
-      this.alert(response.message);
+      this.alert(response.message,(res) => {
+        this.router.navigate(['/'])  
+      });
     };
     const error=response=>{
-      this.alert(response.error.message);
+      this.alert(response.error.message,(res)=>{});
     };
 
     this.account.connexion(this.numero,this.mdp).subscribe(success,error);

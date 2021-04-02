@@ -11,6 +11,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class ForfaitDetailsPage implements OnInit {
   dateAchat:string="";
+  date:string="";
   idForfait:string="";
   forfaitDetails:{};
 
@@ -20,6 +21,11 @@ export class ForfaitDetailsPage implements OnInit {
 
   ngOnInit() {
     this.getForfait();
+  }
+
+  doRefresh(event){
+    this.getForfait();
+    setTimeout(()=>{event.target.complete();}, 2000);
   }
 
   getForfait(){
@@ -52,16 +58,15 @@ export class ForfaitDetailsPage implements OnInit {
   }
 
   achat(methodePaiement:string){
-    
-    this.presentToast("Achat par "+methodePaiement);
     const success=response=>{
-
+      this.presentToast(response.message);
     };
     const error=response=>{
-      
+      this.presentToast(response.error.message);
     };
 
-    this.forfait.achatForfait(this.idForfait,this.dateAchat,methodePaiement).subscribe(success,error);
+    if(this.dateAchat!="")this.date=this.dateAchat.split("T")[0]+" "+this.dateAchat.split("T")[1].split("+")[0];
+    this.forfait.achatForfait(this.idForfait,this.date,methodePaiement).subscribe(success,error);
   }
 
   getIconName(name:string){

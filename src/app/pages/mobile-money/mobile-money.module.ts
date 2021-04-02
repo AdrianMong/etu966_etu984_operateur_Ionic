@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MobileMoneyPageRoutingModule } from './mobile-money-routing.module';
 
 import { MobileMoneyPage } from './mobile-money.page';
-
+import { HeaderComponent } from '../../components/header/header.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +15,7 @@ import { MobileMoneyPage } from './mobile-money.page';
     IonicModule,
     MobileMoneyPageRoutingModule
   ],
-  declarations: [MobileMoneyPage]
+  declarations: [MobileMoneyPage,HeaderComponent],
+  exports: [HeaderComponent]
 })
 export class MobileMoneyPageModule {}

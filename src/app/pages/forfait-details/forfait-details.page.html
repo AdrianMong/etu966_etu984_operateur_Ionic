@@ -1,6 +1,9 @@
 <headerback-component title="Retour" link="/forfait-by-type/{{idForfait}}"></headerback-component>
 
 <ion-content *ngIf="forfaitDetails">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-text color="success">
     <h1 class="ion-text-center ion-margin-top">{{forfaitDetails?.nomForfait}}</h1>
   </ion-text>
@@ -39,7 +42,6 @@
     <ion-item *ngFor="let item of forfaitDetails.desc">
         <ion-icon [name]="getIconName(item.nom)" slot="start"></ion-icon>
         <ion-label>
-            
             <h2>{{item.nom}} : {{item.valeur}}</h2>
         </ion-label>
     </ion-item>

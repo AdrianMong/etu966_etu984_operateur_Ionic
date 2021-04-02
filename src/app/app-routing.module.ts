@@ -41,6 +41,22 @@ const routes: Routes = [
   {
     path: 'forfait-details/:idForfait',
     loadChildren: () => import('./pages/forfait-details/forfait-details.module').then( m => m.ForfaitDetailsPageModule)
+  },
+  {
+    path: 'achat-credit',
+    loadChildren: () => import('./pages/achat-credit/achat-credit.module').then( m => m.AchatCreditPageModule)
+  },
+  {
+    path: 'simulation-appel',
+    loadChildren: () => import('./pages/simulation-appel/simulation-appel.module').then( m => m.SimulationAppelPageModule)
+  },
+  {
+    path: 'simulation-sms',
+    loadChildren: () => import('./pages/simulation-sms/simulation-sms.module').then( m => m.SimulationSMSPageModule)
+  },
+  {
+    path: 'simulation-data',
+    loadChildren: () => import('./pages/simulation-data/simulation-data.module').then( m => m.SimulationDataPageModule)
   }
 ];
 @NgModule({
