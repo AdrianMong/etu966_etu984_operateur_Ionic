@@ -12,6 +12,7 @@ export class AchatCreditPage implements OnInit {
   montant:string="";
   dateAchat:string="";
   date:string="";
+  loading:boolean=false;
 
   constructor(public account:AccountService,public toastController: ToastController,public menu : MenuController) { }
 
@@ -19,6 +20,7 @@ export class AchatCreditPage implements OnInit {
   }
 
   achat(){
+    this.loading=true;
     const success=response=>{
       this.presentToast(response.message);
     };
@@ -28,6 +30,7 @@ export class AchatCreditPage implements OnInit {
 
     if(this.dateAchat!="")this.date=this.dateAchat.split("T")[0]+" "+this.dateAchat.split("T")[1].split("+")[0];
     this.account.achatCredit(this.montant,this.date).subscribe(success,error);
+    this.loading=false;
   }
 
   async presentToast(mess:string) {

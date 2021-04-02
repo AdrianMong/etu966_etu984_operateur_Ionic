@@ -12,6 +12,7 @@ import { MenuController } from '@ionic/angular';
 export class ConnexionPage implements OnInit {
   numero:string='';
   mdp:string='';
+  loading:boolean=false;
 
   constructor(public alertController: AlertController,public account: AccountService,public helper:HelperService,private router: Router,public menu : MenuController) { 
     
@@ -37,6 +38,7 @@ export class ConnexionPage implements OnInit {
   }
 
   connexion(){
+    this.loading=true;
     const success=response=>{
       this.helper.setAccountData(response.datas);
       this.alert(response.message,(res) => {
@@ -48,6 +50,7 @@ export class ConnexionPage implements OnInit {
     };
 
     this.account.connexion(this.numero,this.mdp).subscribe(success,error);
+    this.loading=false;
   }
 
   ionViewWillEnter() {
